@@ -1,4 +1,4 @@
-import React from "react";
+
 import Hide from "../assets/Shape.svg";
 import doubleArrow from "../assets/doubleArrow.svg";
 import ArrowSort from "../assets/Arrow Sort.svg";
@@ -12,7 +12,7 @@ import DoubleArrow from '../assets/doubleArrow (2).svg'
 
 function ToolBar() {
   return (
-    <div className="text-black flex flex-row justify-between px-4 text-xs py-2">
+    <div className="text-black flex absolute top-14 bg-white right-0 left-0 flex-row justify-between px-4 text-xs py-2">
       <div className="flex flex-row justify-between items-center gap-4 ">
         <p className="flex flex-row  gap-2 items-center">
           Tool bar <img className="h-2 w-2 " src={doubleArrow} />{" "}

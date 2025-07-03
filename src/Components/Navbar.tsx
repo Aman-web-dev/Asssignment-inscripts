@@ -1,12 +1,11 @@
-import React from "react";
 import panel from "../assets/Panel.svg";
 import More from "../assets/More.svg";
 import NavSearch from "./Nav-search";
 import { Bell } from "lucide-react";
 
 function Navbar() {
-  return (
-    <div className="h-[56px] border flex flex-row justify-between items-center  px-2">
+  return ( 
+    <div className="h-[56px] border absolute top-0 left-0 right-0 flex flex-row justify-between items-center  px-2 bg-white">
       <div className="flex flex-row gap-4 items-center mx-2 cursor-pointer">
         <img src={panel} />
 

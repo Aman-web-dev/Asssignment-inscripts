@@ -1,13 +1,14 @@
-import React, { useState, useMemo, useEffect } from "react";
+
 import {
   useReactTable,
   getCoreRowModel,
-  getPaginationRowModel,
   getSortedRowModel,
   flexRender,
 } from "@tanstack/react-table";
-
+import linkIcon from "../assets/link-icon.svg";
+import DoubleArrow from '../assets/doubleArrow (2).svg'
 import dummyData from "../assets/DummyData.json";
+import reloadIcon from "../assets/repload.svg";
 
 type JobRequest = {
   id: number;
@@ -23,9 +24,7 @@ type JobRequest = {
 };
 
 function Table() {
-  const [data, setData] = useState<JobRequest[]>(dummyData.data);
 
-  console.log(data);
   const columns = [
     {
       header: "Job Request",
@@ -48,40 +47,77 @@ function Table() {
       accessorKey: "url",
     },
     {
-      header: "Status",
+      header: "Assigned to",
       accessorKey: "assigned",
     },
     {
-      header: "Submitted By",
+      header: "Priority",
       accessorKey: "priority",
     },
     {
-      header: "URL",
+      header: "Due Date",
       accessorKey: "dueDate",
+    },
+    {
+      header: "Est. Value",
+      accessorKey: "estValue",
     },
   ];
   const table = useReactTable({
     columns,
-    data,
+    data:dummyData.data as JobRequest[],
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
   });
 
   return (
-    <div className="min-w-[1245px] min-h-screen" >
+    <div className="min-w-[1264px] min-h-screen ">
+      <div
+        className="
+     w-[100vw] border flex flex-row  justify-between"
+      ></div>
       <table className="text-black w-full">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
             <>
               <tr>
-                <div className="border border-gray-300 px-4 py-1 border-b-0"/>
-                {headerGroup.headers.map((header,index) => (
+                <div className="border border-gray-300 px-4 py-1 border-b-0" />
+                {headerGroup.headers.map((header) => (
                   <th
                     key={header.id}
-                    className="border border-gray-300 px-4 py-1 text-left text-[12px] text-[#757575] cursor-pointer hover:bg-gray-200"
-           
+                    className={` px-4 py-1 text-left text-[12px] text-[#757575]   cursor-pointer hover:bg-gray-200 ${
+                      header.id == "jobRequest" ||
+                      header.id == "submitted" ||
+                      header.id == "status" ||
+                      header.id == "submitter"
+                        ? "bg-[#F6F6F6]"
+                        : header.id == "assigned"
+                        ? "bg-[#D2E0D4]"
+                        :header.id == "priority"||header.id == "dueDate" ?"bg-[#DCCFFC]":header.id == "estValue" ?"bg-[#FAC2AF]":"bg-white border border-gray-300"
+                    }`}
                   >
-                    {String.fromCharCode(65+index)}  
+                    {header.id == "jobRequest" ? (
+                      <div className="flex flex-row gap-2 items-center">
+                        <img src={linkIcon} />
+                        <p className="text-[10px]">Q3 Finacial Overview</p>
+                        <img className="h-3 w-3" src={reloadIcon} />
+                      </div>
+                    ) : header.id == "assigned" ? (
+                      <div className="flex flex-row gap-2 items-center h-full wi-full">
+                        <img className="h-3 w-3"  src={DoubleArrow} />
+                        <p className="text-[10px]">ABC</p>
+                      </div>
+                    ) : header.id == "dueDate"||header.id == "priority" ? (
+                      <div className="flex flex-row gap-2 items-center  h-full wi-full">
+                        <img className="h-3 w-3"  src={DoubleArrow} />
+                        <p className="text-[10px]">Answer a Question</p>
+                      </div>) : header.id == "estValue" ? (
+                      <div className="flex flex-row gap-2 items-center  h-full wi-full">
+                        <img className="h-3 w-3"  src={DoubleArrow} />
+                        <p className="text-[10px]">Extract</p>
+                      </div>) : (
+                      ""
+                    )}
                   </th>
                 ))}
               </tr>
@@ -95,7 +131,6 @@ function Table() {
                   <th
                     key={header.id}
                     className="border border-gray-300 px-4 py-1 text-left text-[12px] text-[#757575] cursor-pointer hover:bg-gray-200"
-         
                   >
                     {header.isPlaceholder
                       ? null
@@ -103,9 +138,12 @@ function Table() {
                           header.column.columnDef.header,
                           header.getContext()
                         )}
-         
                   </th>
                 ))}
+                <div className="border border-gray-300 px-4 py-1 text-left text-[12px] text-[#757575] cursor-pointer hover:bg-gray-200">
+                  {" "}
+                  +
+                </div>
               </tr>
             </>
           ))}
@@ -114,7 +152,7 @@ function Table() {
           {table.getRowModel().rows.map((row) => (
             <>
               <tr key={row.id} className="hover:bg-gray-50 text-[8px]">
-                <p className="border border-gray-300 px-4 py-2"> {row.id++}</p>
+                <p className="border border-gray-300 px-4 py-2">{Number(row.id) + 1}</p>
                 {row.getVisibleCells().map((cell) => (
                   <td
                     key={cell.id}
@@ -123,6 +161,11 @@ function Table() {
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>
                 ))}
+                <td
+                    
+                    className="border border-gray-300 px-4 py-2 min-w-24"
+                  >
+                    </td>
               </tr>
             </>
           ))}

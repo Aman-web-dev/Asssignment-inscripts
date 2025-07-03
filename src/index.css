@@ -72,3 +72,84 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+/* Minimal Sleek Scrollbar Styles */
+
+/* For Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #618666;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4a6b4f;
+}
+
+::-webkit-scrollbar-corner {
+  background: white;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #618666 white;
+}
+
+/* Optional: Apply to specific elements */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #618666 white;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #618666;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #4a6b4f;
+}
+
+/* Extra thin version (6px) */
+.thin-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 3px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: #618666;
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #4a6b4f;
+}
