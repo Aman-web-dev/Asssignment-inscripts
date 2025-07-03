@@ -25,7 +25,7 @@ type JobRequest = {
   assigned: string;
   priority: string;
   dueDate: string;
-  estValue: number;
+  estValue: number|"";
 };
 
 function Table() {
