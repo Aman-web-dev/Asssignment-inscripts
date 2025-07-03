@@ -17,32 +17,32 @@ function ToolBar() {
         <p className="flex flex-row  gap-2 items-center">
           Tool bar <img className="h-2 w-2 " src={doubleArrow} />{" "}
         </p>
-        <button className="flex flex-row items-center gap-2">
+        <button onClick={()=>{console.log("Something is Happening The Ui isn't Dead")}} className="flex flex-row items-center gap-2">
           <img className="h-3 w-3" src={Hide} />
           Hide Fields
         </button>
-        <button className="flex flex-row items-center gap-2">
+        <button onClick={()=>{console.log("Something is Happening The Ui isn't Dead")}} className="flex flex-row items-center gap-2">
           <img className="h-3 w-3" src={ArrowSort} />
           Sort
         </button>
-        <button className="flex flex-row items-center gap-2">
+        <button onClick={()=>{console.log("Something is Happening The Ui isn't Dead")}} className="flex flex-row items-center gap-2">
           <img className="h-3 w-3" src={Filter} />
           Filter
         </button>
-        <button className="flex flex-row items-center gap-2">
+        <button onClick={()=>{console.log("Something is Happening The Ui isn't Dead")}} className="flex flex-row items-center gap-2">
           <img className="h-3 w-3" src={CellView} />
           Cell View
         </button>
       </div>
 
       <div className="flex flex-row justify-between gap-[8px]">
-        <button className="flex flex-row items-center gap-2 border rounded-md px-2 hover:border-black">
+        <button onClick={()=>{console.log("Something is Happening The Ui isn't Dead")}} className="flex flex-row items-center gap-2 border rounded-md px-2 hover:border-black">
           <img className="h-3 w-3" src={arrowDownload} />Import </button>
-          <button className="flex flex-row items-center gap-2 border rounded-md px-2 hover:border-black">
+          <button onClick={()=>{console.log("Something is Happening The Ui isn't Dead")}} className="flex flex-row items-center gap-2 border rounded-md px-2 hover:border-black">
           <img className="h-3 w-3" src={arrowUpload} />Export </button>
-          <button className="flex flex-row items-center gap-2 border rounded-md px-2 hover:border-black">
+          <button onClick={()=>{console.log("Something is Happening The Ui isn't Dead")}} className="flex flex-row items-center gap-2 border rounded-md px-2 hover:border-black">
           <img className="h-3 w-3" src={arrowforward} />Share </button>
-          <button className="flex flex-row items-center gap-2 bg-green-600 px-2 py-1.5 rounded-lg text-white">
+          <button onClick={()=>{console.log("Something is Happening The Ui isn't Dead")}} className="flex flex-row items-center gap-2 bg-green-600 px-2 py-1.5 rounded-lg text-white">
           <img className="h-3 w-3" src={DoubleArrow} />New Action</button>
       </div>
     </div>

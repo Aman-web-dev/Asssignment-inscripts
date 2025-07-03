@@ -120,7 +120,7 @@ function Table() {
           {table.getHeaderGroups().map((headerGroup) => (
             <>
               <tr>
-                <div className="border border-gray-300 px-4 py-1 border-b-0" />
+                <th className="border border-gray-300 px-4 py-1 border-b-0" />
                 {headerGroup.headers.map((header) => (
                   <th
                     key={header.id}
@@ -171,7 +171,7 @@ function Table() {
                 key={headerGroup.id}
                 className="min-w-full border-collapse border border-gray-300 "
               >
-                <p className="text-[14px] text-[#757575]">#</p>
+                <th className="text-[14px] text-[#757575]">#</th>
                 {headerGroup.headers.map((header) => (
                   <th
                     key={header.id}
@@ -223,10 +223,10 @@ function Table() {
                     )}
                   </th>
                 ))}
-                <div className="border border-gray-300 px-4 py-1 text-left text-[12px] text-[#757575] cursor-pointer hover:bg-gray-200">
+                <td className="border border-gray-300 px-4 py-1 text-left text-[12px] text-[#757575] cursor-pointer hover:bg-gray-200">
                   {" "}
                   +
-                </div>
+                </td>
               </tr>
             </>
           ))}
@@ -235,9 +235,9 @@ function Table() {
           {table.getRowModel().rows.map((row) => (
             <>
               <tr key={row.id} className="hover:bg-gray-50 text-[8px]">
-                <p className="border border-gray-300 px-4 py-2">
+                <td className="border border-gray-300 px-4 py-2">
                   {Number(row.id) + 1}
-                </p>
+                </td>
                 {row.getVisibleCells().map((cell) => (
                   <td
                     key={cell.id}
