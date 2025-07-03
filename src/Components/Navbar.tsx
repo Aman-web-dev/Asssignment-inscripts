@@ -23,7 +23,7 @@ function Navbar() {
         <section className="relative w-fit">
           <Bell height={20} width={20} color="black" />
           <p className="absolute -top-2 -right-2  font-bold text-white bg-[#4B6A4F] rounded-full px-1.5  text-[10px]">
-            5
+            2
           </p>
         </section>
 
